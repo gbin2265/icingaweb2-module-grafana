@@ -329,7 +329,6 @@ trait IcingaDbGrapher
                     "style" => "width: 100%; border: none;"
                 ]
             );
-
             $previewHtml->add($iframeHtml);
         }
         return true;
@@ -482,10 +481,14 @@ trait IcingaDbGrapher
                     $this->orgId,
                     $this->panelId
                 );
-
-                $link = new Link($previewHtml, $url, ["target" => "_blank"]);
-
-                $html->add($link);
+            	if ($this->accessMode !== "iframe") {
+                    $link = new Link($previewHtml, $url, ["target" => "_blank"]);
+                    $html->add($link);
+            	} else {
+                    $link = new Link(" => see in Grafana", $url, ["target" => "_blank"]);
+                    $html->add($link);
+                    $html->addHtml($previewHtml);
+            	};
             }
 
             $return_html->add($html);
