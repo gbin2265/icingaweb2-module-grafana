@@ -783,3 +783,4 @@ trait IcingaDbGrapher
         return $htmlForObject;
     }
 }
+
