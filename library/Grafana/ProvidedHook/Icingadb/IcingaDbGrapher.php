@@ -68,6 +68,12 @@ trait IcingaDbGrapher
     protected $grafanaVersion = "0";
     protected $defaultdashboarduid;
     protected $object;
+    protected $permission;
+    protected $dashboard;
+    protected $dashboarduid;
+    protected $panelId;
+    protected $orgId;
+    protected $customVars;
 
     protected function init()
     {
